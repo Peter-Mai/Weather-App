@@ -2,13 +2,12 @@
 document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch(){
-  const choice = document.querySelector('input').value
-  const url = 'https://pokeapi.co/api/v2/pokemon/'+choice
 
-  fetch(url)
+  fetch('https://api.gameofthronesquotes.xyz/v1/random')
       .then(res => res.json()) // parse response as JSON
       .then(data => {
-        console.log(data)
+        document.querySelector('h2').innerText = `Character : ${data.character.name}`
+        document.querySelector('h3').innerText = data.sentence;
       })
       .catch(err => {
           console.log(`error ${err}`)
